@@ -1,0 +1,49 @@
+<div class="container">
+    <input type="text" class="searchbox" #box (keyup)="onSearchKeyPress(box.value)" placeholder="Enter a car name">
+    <button class="refresh" (click)="refreshpage()">Done With Search</button>
+</div>
+<form [formGroup]="dropdownForm">
+    <div class="form-group">
+      <select class="form-control" formControlName="selectedOption" (change)="CateogorySelect($event)">
+        <option value="">Select a Product Category</option>
+        <option *ngFor="let data of collection; let i = index" [value]="data.car_Category" >
+          {{ i + 1 }}. {{ data.car_Category}}
+        </option>
+      </select>
+    </div>
+  </form>
+<p>Selected option: {{ selectedOption.value }}</p>
+
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Car Name</th>
+                <th scope="col">Car Maker</th>
+                <th scope="col">Rent Price/Day</th>
+                <th scope="col">Vehicle Condition</th>
+                <th scope="col">Image</th>
+                <th *ngIf="email == 'myadmin@test.com'" style="width: 205px;" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of collection">
+                <td>{{ data.car_Name }}</td>
+                <td>{{ data.car_Maker }}</td>
+                <td>{{ data.rent_Price }}</td>
+                <td>{{ data.status }}</td>
+                <td><img class="image" src="{{data.image}}" alt="product image" (click)="availableCar(data.id)" >
+                </td>
+                <td *ngIf="email == 'myadmin@test.com'">
+                    <a><button *ngIf="email == 'myadmin@test.com'" type="submit" class="btn btn-success"
+                            routerLink="updateproduct/{{data.id}}">Edit</button></a>
+                    <a><button *ngIf="email == 'myadmin@test.com'" type="submit" class="btn btn-danger" [disabled]="deleting" (click)="deleteStudent(data.id)">
+                        <span *ngIf="deleting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span *ngIf="!deleting">Delete</span>
+                    </button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,69 @@
+
+.product {
+  display: flex;
+  background-color: rgb(253, 253, 246);
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+/* Style the images container */
+.images {
+  margin-bottom: 40px;
+}
+
+/* Style the image */
+.images img {
+  height: 200px;
+  width: 250px;
+  margin: 40px;
+}
+
+/* Style the details container */
+.details {
+  flex: 2;
+  padding: 10px;
+}
+
+/* Style form labels */
+.form-group label {
+  font-weight: bold;
+}
+
+/* Style form inputs */
+.form-control {
+  width: 40%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the invalid feedback */
+.invalid-feedback {
+  color: red;
+  font-size: 14px;
+}
+
+/* Style the button */
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the status input */
+#Specification {
+  text-transform: uppercase;
+}
+
+/* Style the "Add to Rent Service" message */
+.text-danger {
+  color: red;
+}
+
+

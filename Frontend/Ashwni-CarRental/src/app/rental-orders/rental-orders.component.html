@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Car Name</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Return Request</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of resultant">
+                <td>{{data.car_Name}} </td>
+                <td>{{data.startDate}}</td>
+                <td>{{data.endDate}}</td>
+                <td>{{data.rental_Price }}</td>
+                <td><img class="image"src="{{data.image}}" alt="product image"></td>
+                <td><a><button  type="submit" class="btn btn-success"
+                    (click)="Returnreq(data.carId)">Return Request</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
